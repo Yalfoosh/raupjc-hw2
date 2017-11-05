@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Z1;
 
 namespace Z4
@@ -13,15 +7,10 @@ namespace Z4
     {
         public static string[] Linq1(int[] intArray)
         {
-            var group = intArray.GroupBy(x => x).OrderBy(x => x.Key);
-
-            string[] toRet = new string[group.Count()];
-            int index = 0;
-
-            foreach (IGrouping<int, int> x in group)
-                toRet[index++] = "Broj " + x.Key + " ponavlja se " + x.Count() + " puta";
-
-            return toRet;
+            return intArray.GroupBy(x => x)
+                           .OrderBy(x => x.Key)
+                           .Select(x => "Broj " + x.Key + " ponavlja se " + x.Count() + " puta")
+                           .ToArray();
         }
 
         public static University[] Linq2_1(University[] universityArray)

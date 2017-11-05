@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Z2;
 
-namespace UnitTestZ2
+namespace Z3
 {
     [TestClass]
     public class TodoItemTests
