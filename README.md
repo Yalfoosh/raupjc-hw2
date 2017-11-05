@@ -1,5 +1,5 @@
 # raupjc-hw2
-The second homework for FER's C# course.
+The second homework for FER's C# course. The Solution file is in Z1, sicne that is the startup project.
 
 # Pitanje 1:
 5004 ms.
