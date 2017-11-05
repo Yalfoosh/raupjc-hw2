@@ -4,7 +4,7 @@ The second homework for FER's C# course.
 # Pitanje 1:
 5004 ms.
 
-#Pitanje 2:
+# Pitanje 2:
 Jednoj jedinstvenoj, ID => 1.
 
 # Pitanje 3:
