@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace Z5
 
             stopwatch.Stop();
 
-            Console.WriteLine("Synchronous long operation calls finished {0} sec.", stopwatch.Elapsed.TotalSeconds);
+            Console.WriteLine("Synchronous long operation calls finished {0} sec.\n", stopwatch.Elapsed.TotalSeconds);
         }
 
         public static void Paralleled()
@@ -45,16 +47,53 @@ namespace Z5
 
             stopwatch.Stop();
 
-            Console.WriteLine("Parallel long operation calls finished {0} sec.",
+            Console.WriteLine("Parallel long operation calls finished {0} sec.\n",
                 stopwatch.Elapsed.TotalSeconds);
+        }
+
+        public static void SyncAsync()
+        {
+            List<int> results = new List<int>();
+
+            try
+            {
+                Parallel.For(0, 100000, i =>
+                {
+                    Thread.Sleep(1);
+                    results.Add(i * i);
+                });
+            }
+            catch (Exception)
+            {
+                // Ignoriram, samo da ne ruši.
+            }
+
+            Console.WriteLine("Bag length should be 100000. Length is {0}\n",
+                              results.Count);
+        }
+
+        public static void TrueAsync()
+        {
+            ConcurrentBag<int> iterations = new ConcurrentBag<int>();
+
+            Parallel.For(0, 100000, i =>
+            {
+                Thread.Sleep(1);
+                iterations.Add(i);
+            });
+
+            Console.WriteLine("Bag length should be 100000. Length is {0}\n",
+                              iterations.Count);
         }
 
         public static void Main(string[] args)
         {
             Serial();
             Paralleled();
+            SyncAsync();
+            TrueAsync();
 
-            System.Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }

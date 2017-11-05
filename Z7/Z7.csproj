@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A06C1960-4C1B-457D-8E64-D3469695638D}</ProjectGuid>
+    <ProjectGuid>{EEEE89CE-26EF-43D7-AB5B-BF4C8FD89CA7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Z5</RootNamespace>
-    <AssemblyName>Z5</AssemblyName>
+    <RootNamespace>Z7</RootNamespace>
+    <AssemblyName>Z7</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Z5.cs" />
+    <Compile Include="VoldemortProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Z6\Z6.csproj">
+      <Project>{fe6fd483-4331-48fe-a724-d20a2a6aaa65}</Project>
+      <Name>Z6</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
